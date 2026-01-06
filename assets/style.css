@@ -1,0 +1,646 @@
+/* =========================================
+   1. VARIABLES & DESIGN SYSTEM (Graphite & Gold)
+   ========================================= */
+:root {
+    /* Palette: Graphite & Gold */
+    --brand-zinc-dark: #18181B;
+    /* Zinc 900 (Graphite) */
+    --brand-zinc-mid: #52525B;
+    /* Zinc 600 */
+    --brand-gold: #D97706;
+    /* Amber 600 (Gold) */
+    --brand-gold-dark: #B45309;
+    /* Amber 700 */
+    --brand-gold-light: #F59E0B;
+    /* Amber 500 */
+
+    /* Semantic Mappings */
+    --primary-color: var(--brand-gold);
+    --primary-hover: var(--brand-gold-dark);
+    --accent-color: var(--brand-gold);
+
+    --bg-body: #FAFAFA;
+    /* Zinc 50 */
+    --text-main: #18181B;
+    --text-muted: #52525B;
+    --border-color: #E4E4E7;
+    /* Zinc 200 */
+
+    --input-bg: #FFFFFF;
+    --input-focus-ring: rgba(217, 119, 6, 0.25);
+    /* Gold ring */
+
+    /* Spacing & Layout */
+    --card-radius: 12px;
+    --input-radius: 6px;
+    --btn-radius: 6px;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================
+   2. GLOBAL UTILITIES & OVERRIDES
+   ========================================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    letter-spacing: -0.025em;
+    color: var(--brand-zinc-dark);
+}
+
+/* Text Overrides */
+.text-primary {
+    color: var(--brand-gold) !important;
+}
+
+/* Background Overrides (Sidebar/Navbar -> Zinc) */
+.bg-primary {
+    background-color: var(--brand-zinc-dark) !important;
+}
+
+/* Button Overrides (Actions -> Gold) */
+.btn-primary {
+    background-color: var(--brand-gold) !important;
+    border-color: var(--brand-gold) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: var(--brand-gold-dark) !important;
+    border-color: var(--brand-gold-dark) !important;
+}
+
+.btn-outline-primary {
+    color: var(--brand-gold) !important;
+    border-color: var(--brand-gold) !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--brand-gold) !important;
+    color: white !important;
+}
+
+/* =========================================
+   3. LOGIN PAGE SPECIFIC STYLES
+   ========================================= */
+.login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f4f4f5 0%, #e4e4e7 100%);
+    /* Subtle Zinc Gradient */
+}
+
+.login-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 420px;
+    overflow: hidden;
+}
+
+.login-header {
+    padding: 2.5rem 2.5rem 1.5rem;
+    text-align: center;
+}
+
+.login-body {
+    padding: 0 2.5rem 2.5rem;
+}
+
+.login-footer {
+    padding: 1rem 0;
+    text-align: center;
+    background: #FAFAFA;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* Custom Input Groups (Seamless) */
+.custom-input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: var(--input-radius);
+    background-color: var(--input-bg);
+    transition: all 0.2s ease;
+    overflow: hidden;
+}
+
+.custom-input-group:focus-within {
+    border-color: var(--brand-gold);
+    box-shadow: 0 0 0 4px var(--input-focus-ring);
+}
+
+.custom-input-group .input-icon {
+    padding: 0 12px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.custom-input-group .form-control {
+    border: none;
+    box-shadow: none;
+    padding: 0.75rem 0.5rem 0.75rem 0;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    background: transparent;
+}
+
+.custom-input-group .form-control::placeholder {
+    color: #A1A1AA;
+    /* Zinc 400 */
+}
+
+.custom-input-group .btn-toggle {
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    padding: 0 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+
+.custom-input-group .btn-toggle:hover {
+    color: var(--brand-gold);
+}
+
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Primary Button */
+.btn-security {
+    background-color: var(--brand-gold);
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--btn-radius);
+    border: none;
+    width: 100%;
+    transition: all 0.2s;
+    letter-spacing: 0.025em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-security:hover {
+    background-color: var(--brand-gold-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-security:active {
+    transform: translateY(0);
+}
+
+.btn-security:focus {
+    box-shadow: 0 0 0 4px var(--input-focus-ring);
+}
+
+/* =========================================
+   4. ANIMATED UPLOAD BUTTON (Reskinned to Graphite & Gold)
+   ========================================= */
+.anim-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Changed to GOLD Gradients */
+.anim-btn {
+    position: relative;
+    width: 200px;
+    height: 50px;
+    background: linear-gradient(to bottom, #B45309 10%, #D97706 50%, #F59E0B 100%);
+    /* Amber Gradient */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    overflow: hidden;
+    user-select: none;
+    border: 2px solid #78350F;
+    /* Dark Amber Border */
+    transition: 0.5s;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.anim-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Stars generic */
+.anim-stars {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    z-index: 3;
+    border-radius: 50%;
+    transform: translate(-20px, -20px);
+    box-shadow: 5px 10px white, 10px -2px white, 20px 0px white, 30px -5px white, -10px -5px white, -15px 2px white, -35px 0px white, 5px 10px white, 10px -2px white, 20px 0px white, 30px -5px white, -10px -5px white, -15px 2px white, -35px 0px white, 50px 15px white, 60px -10px white, 70px 20px white, 90px -15px white, 100px 5px white, 110px -25px white, 90px 30px white, 80px -40px white, -50px 20px white, -70px -10px white, -90px 25px white, -100px -15px white, -110px 10px white, -90px -35px white, -80px 40px white, 40px 40px white, 30px -40px white, -30px 30px white, -40px -25px white, 60px 60px white, -60px -60px white, 70px -70px white, -70px 70px white, 0px 80px white, 0px -90px white, 90px 0px white, -100px 0px white, 45px 5px white, 65px 0px white, 75px 10px white, -60px 10px white, -40px 10px white, -45px -8px white, -55px -2px white, -30px 17px white;
+}
+
+.anim-background {
+    width: 50%;
+    height: 160%;
+    background-color: white;
+    position: absolute;
+    border-radius: 50%;
+    transform: translate(-100%, 50%);
+    box-shadow: -30px -40px 0px -7px #ffffffd8, 40px 14px rgba(255, 255, 255, 0.507);
+    animation: scale 1s forwards paused;
+}
+
+.anim-background::before {
+    content: "";
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    position: absolute;
+    border-radius: 50%;
+    transform: translate(110%, 20%);
+    box-shadow: 50px -5px #ffffffb2;
+}
+
+.anim-background::after {
+    content: "";
+    width: 120%;
+    height: 120%;
+    background-color: white;
+    position: absolute;
+    border-radius: 50%;
+    transform: translate(120%, 10%);
+    box-shadow: 50px -20px #ffffffd8;
+}
+
+/* Text -> White on Gold Button */
+.anim-order {
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    z-index: 10;
+    transform: translate(0%, 0%);
+    animation: text 3s forwards paused;
+}
+
+.anim-done {
+    position: absolute;
+    color: #78350F;
+    font-weight: 600;
+    font-size: 1rem;
+    z-index: 10;
+    transform: translate(-310%);
+    animation: text2 3s forwards paused;
+}
+
+/* Dark Amber text when done */
+
+.anim-car-container {
+    position: absolute;
+    height: 60%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    transform: translate(-310%, 8%);
+    animation: car 3s ease forwards paused;
+}
+
+.anim-car-part1 {
+    position: absolute;
+    width: 60%;
+    height: 20%;
+    background-color: #fed54a;
+    bottom: 30%;
+    left: 10%;
+}
+
+.anim-car-part1::before {
+    position: absolute;
+    content: "";
+    width: 75%;
+    height: 220%;
+    background-color: #b1c5ed;
+    left: 20%;
+    bottom: 100%;
+    clip-path: polygon(0% 100%, 10% 0%, 80% 0%, 100% 100%);
+}
+
+.anim-car-part1::after {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 100%;
+    background-color: #fed54a;
+    left: 0%;
+    bottom: 100%;
+    clip-path: polygon(0% 100%, 0% 0%, 50% 0%, 100% 100%);
+}
+
+.anim-wheels {
+    position: absolute;
+    width: 28%;
+    height: 35%;
+    background-color: black;
+    border-radius: 50%;
+    left: 5%;
+    bottom: 15%;
+}
+
+.anim-wheels::before {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 70%;
+    background-color: black;
+    border-radius: 50%;
+    left: 180%;
+    bottom: 0%;
+}
+
+.anim-car-part2 {
+    position: absolute;
+    width: 7%;
+    height: 70%;
+    background-color: black;
+    left: 68%;
+    bottom: 25%;
+}
+
+.anim-car-part2::before {
+    content: "";
+    position: absolute;
+    width: 155%;
+    height: 50%;
+    background-color: black;
+    left: 0%;
+    bottom: 0%;
+}
+
+.anim-car-part2::after {
+    content: "";
+    position: absolute;
+    width: 555%;
+    height: 6%;
+    background-color: black;
+    left: 0%;
+    bottom: 0%;
+}
+
+.anim-details {
+    position: absolute;
+    width: 30%;
+    height: 3%;
+    background-color: #fed54a;
+    top: 5%;
+    left: 25%;
+}
+
+.anim-details::before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 650%;
+    border-radius: 50%;
+    background-color: #fed54a;
+    top: 1750%;
+    left: -45%;
+}
+
+.anim-details::after {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 400%;
+    border-radius: 50%;
+    background-color: #fed54a;
+    top: 2060%;
+    left: 125%;
+}
+
+.anim-package-container {
+    position: absolute;
+    width: 25%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 6;
+    transform: translate(0%, 100%);
+    animation: package 3s forwards paused;
+}
+
+.anim-package {
+    position: absolute;
+    width: 45%;
+    height: 40%;
+    background-color: #ffb571;
+}
+
+.anim-package::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 5%;
+    background-color: #d57d2b;
+    right: 0%;
+    top: -2%;
+    transform: rotate(210deg);
+    transform-origin: right;
+    animation: close 0.5s ease-in-out 0.3s forwards paused;
+}
+
+.anim-package::before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 5%;
+    background-color: #d57d2b;
+    left: 0%;
+    top: -2%;
+    transform: rotate(-210deg);
+    transform-origin: left;
+    animation: close2 0.5s ease-in-out 0.3s forwards paused;
+}
+
+.anim-package-details {
+    position: absolute;
+    background-color: #754433;
+    width: 10%;
+    height: 10%;
+    top: 30%;
+}
+
+.anim-package-details::before {
+    content: "";
+    position: absolute;
+    background-color: #ededed;
+    width: 100%;
+    height: 100%;
+    bottom: -280%;
+    left: -150%;
+}
+
+.anim-package-details::after {
+    content: "";
+    position: absolute;
+    background-color: #8f8f8f;
+    width: 40%;
+    height: 40%;
+    bottom: -230%;
+    left: -105%;
+}
+
+.anim-package-text {
+    position: absolute;
+    z-index: 2;
+    bottom: 32%;
+    right: 30%;
+    font-size: 0.3rem;
+}
+
+#trigger {
+    display: none;
+}
+
+#trigger:checked+.anim-btn .anim-package-container,
+#trigger:checked+.anim-btn .anim-order,
+#trigger:checked+.anim-btn .anim-done,
+#trigger:checked+.anim-btn .anim-car-container,
+#trigger:checked+.anim-btn .anim-package::after,
+#trigger:checked+.anim-btn .anim-package::before,
+#trigger:checked+.anim-btn .anim-background {
+    animation-play-state: running;
+}
+
+#trigger:checked+.anim-btn .anim-stars {
+    display: none;
+}
+
+@keyframes close {
+    0% {
+        transform: rotate(210deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes close2 {
+    0% {
+        transform: rotate(-210deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes scale {
+    0% {
+        transform: translate(-100%, 50%) scale(1);
+    }
+
+    100% {
+        transform: translate(-100%, 50%) scale(5);
+    }
+}
+
+@keyframes package {
+    0% {
+        transform: translate(0%, 100%);
+    }
+
+    10%,
+    50% {
+        transform: translate(0%, 0%);
+    }
+
+    100% {
+        transform: translate(325%, 0%);
+    }
+}
+
+@keyframes text {
+    0% {
+        transform: translate(0%, 0%);
+    }
+
+    10%,
+    100% {
+        transform: translate(0%, -200%);
+    }
+}
+
+@keyframes text2 {
+
+    0%,
+    50% {
+        transform: translate(-310%);
+    }
+
+    100% {
+        transform: translate(0%);
+    }
+}
+
+@keyframes car {
+
+    0%,
+    10% {
+        transform: translate(-310%, 8%);
+    }
+
+    45%,
+    50% {
+        transform: translate(-60%, 8%);
+    }
+
+    100% {
+        transform: translate(350%, 8%);
+    }
+}
